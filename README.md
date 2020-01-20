@@ -1,2 +1,2 @@
 # web_scraping_drazbe
-Scraping web page of sodisce.si for drazbe.
+[done] Scraping web page of sodisce.si for drazbe.
