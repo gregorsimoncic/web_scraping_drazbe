@@ -19,7 +19,7 @@ $vrstice = ($drazbe.ParsedHtml.body.getElementsByTagName("tr") | Where-Object {(
 $podatki = $vrstice | Select-String -Pattern "<td ?.*?>Okrajno sodišče v Kopru</td>" | Out-File $outFile0
 
 # poiscem samo tiste vrstice s povezavami iz file-a zapisanega na disku
-$vzorec = 'h(\r)*(\n)*r(\r)*(\n)*e(\r)*(\n)*f(\r)*(\n)*=(\r)*(\n)*"(\r)*(\n)*/(\r)*(\n)*m(\r)*(\n)*m(\r)*(\n)*a(\r)*(\n)*_(\r)*(\n)*b(\r)*(\n)*i(\r)*(\n)*n(\r)*(\n)*(\.)(\r)*(\n)*p(\r)*(\n)*h(\r)*(\n)*p(\r)*(\n)*(\?)(\r)*(\n)*i(\r)*(\n)*d(\r)*(\n)*=(\r)*(\n)*(\d{1})*(\r)*(\n)*(\d{1})*&(\r)*(\n)*a(\r)*(\n)*m(\r)*(\n)*p(\r)*(\n)*;(\r)*(\n)*s(\r)*(\n)*e(\r)*(\n)*t(\r)*(\n)*=(\r)*(\n)*a(\r)*(\n)*u(\r)*(\n)*c(\r)*(\n)*t(\r)*(\n)*i(\r)*(\n)*o(\r)*(\n)*n'
+$vzorec = 'h(\r)*(\n)*r(\r)*(\n)*e(\r)*(\n)*f(\r)*(\n)*=(\r)*(\n)*"(\r)*(\n)*/(\r)*(\n)*m(\r)*(\n)*m(\r)*(\n)*a(\r)*(\n)*_(\r)*(\n)*b(\r)*(\n)*i(\r)*(\n)*n(\r)*(\n)*(\.)(\r)*(\n)*p(\r)*(\n)*h(\r)*(\n)*p(\r)*(\n)*(\?)(\r)*(\n)*i(\r)*(\n)*d(\r)*(\n)*=(\r)*(\n)*(\d{1})*(\r)*(\n)*(\d{1})*&(\r)*(\n)*a(\r)*(\n)*m(\r)*(\n)*p(\r)*(\n)*;(\r)*(\n)*s(\r)*(\n)*e(\r)*(\n)*t(\r)*(\n)*=(\r)*(\n)*a(\r)*(\n)*u(\r)*(\n)*c(\r)*(\n)*t(\r)*(\n)*i(\r)*(\n)*o(\r)*(\n)*n(\r)*(\n)*'
 $povezave = Get-Content $outFile0 -Delimiter "<TD>" | Select-String -Pattern $vzorec | ForEach-Object {$_.Matches[0].Groups[0].Value} | Out-File $outFile1
 
 # in shranim v locen file
